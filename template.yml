@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Alexa Skill How-Old-Is
+
+Globals:
+  Function:
+    Runtime: go1.x
+    Timeout: 300
+    Handler: main
+
+Resources:
+
+  AlexaSkillFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: how-old-is
+      CodeUri: ./dist/how-old-is/
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
